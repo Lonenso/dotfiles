@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 cd "$(dirname "$0")"
 
@@ -12,7 +12,7 @@ function doIt() {
 		--exclude "README.md" \
 		--exclude "LICENSE" \
 		-avh --no-perms . ~;
-	source ~/.zshrc;
+    exec zsh
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then

@@ -14,7 +14,7 @@
 [alias]
 	co = checkout
 	cm = commit --message
-	st = status
+	st = status -s
 	br = branch
     lo = log --pretty=format:"%C(yellow)%h%x09%C(blue)%>(12)%an%x09%C(red)%ad%x09%Creset%s" --date=relative
     lof = log --pretty=format:"%C(yellow)%h%x09%C(blue)%>(12)%an%x09%C(red)%ad%x09%Creset%s" --date=rfc

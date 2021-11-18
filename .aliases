@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+alias g="git"
 alias ez="exec zsh"
 alias vz="vim ~/.zshrc"
 alias gh="git rev-parse HEAD"
@@ -11,3 +12,4 @@ alias g1="open ~/Repo/RingCentral-iOS/Glip/Glip.xcworkspace"
 alias g2="cd ~/Repo/duplicates/RingCentral-iOS/ && open ~/Repo/duplicates/RingCentral-iOS/Glip/Glip.xcworkspace"
 alias zl="z -l"
 alias zc="z -c"
+alias path='echo -e ${PATH//:/\\n}'

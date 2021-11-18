@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# using the hidden shuangpin layout
+defaults write com.apple.inputmethod.CoreChineseEngineFramework shuangpinLayout 5

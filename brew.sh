@@ -26,10 +26,10 @@ ln -s "${BREW_PREFIX}/bin/gsha256sum" "${BREW_PREFIX}/bin/sha256sum"
 brew install moreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
 # Install GNU `sed`, overwriting the built-in `sed`.
-brew install gnu-sed --with-default-names
+brew install gnu-sed 
 
 # Install more recent versions of some macOS tools.
-brew install vim --with-override-system-vi --with-python3
+brew install vim 
 
 brew install xz
 
@@ -52,7 +52,7 @@ brew install sqlite
 brew install proxychains-ng
 brew install oath-toolkit
 brew install tmux
-
+brew install zsh-autosuggestions zsh-syntax-highlighting z
 
 # Remove outdated versions from the cellar.
 brew cleanup
