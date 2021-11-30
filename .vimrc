@@ -137,6 +137,9 @@ nmap <C-e> :NERDTreeToggle<CR>
 " Fzf
 nnoremap <leader><leader> :Files<CR>
 nnoremap <leader>rg :Rg
+inoremap <expr> <c-x><c-f> fzf#vim#complete#path(
+    \ "find . -path '*/\.*' -prune -o -print \| sed '1d;s:^..::'",
+    \ fzf#wrap({'dir': expand('%:p:h')}))
 " Command
 command -nargs=1 Count :%s/<args>//gn
 

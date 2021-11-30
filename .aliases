@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 alias g="git"
+alias gs="gs"
 alias ez="exec zsh"
 alias vz="vim ~/.zshrc"
 alias gh="git rev-parse HEAD"
