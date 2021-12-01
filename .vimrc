@@ -64,6 +64,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'valloric/youcompleteme', { 'do' : function('BuildYCM')}
     Plug 'skanehira/preview-uml.vim'
     Plug 'jremmen/vim-ripgrep'
+    Plug 'tpope/vim-abolish'
 call plug#end()
 "ale setting 
 "let g:ale_completion_enabled = 1
