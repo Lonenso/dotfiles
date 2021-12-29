@@ -2,11 +2,15 @@
 
 function tmp() {
     f=$(mktemp)
-    vim $f
-    echo $f
+    vim "$f"
+    echo "$f"
 }
 
 function swap() {
     local TMPFILE=tmp.$$
     mv "$1" $TMPFILE && mv "$2" "$1" && mv $TMPFILE "$2"
+}
+
+function fghs() {
+    git submodule foreach 'echo $sm_path `git rev-parse --short HEAD`'
 }
