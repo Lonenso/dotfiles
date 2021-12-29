@@ -1,16 +1,14 @@
 #!/usr/bin/env bash
 
 alias g="git"
-alias gs="gs"
+alias gs="g status"
 alias ez="exec zsh"
 alias vz="vim ~/.zshrc"
-alias gh="git rev-parse HEAD"
 alias ghs="git rev-parse --short HEAD"
 alias gds="git diff --staged"
 alias sti="defaults write com.apple.dt.Xcode IDEIndexDisable 0"
 alias soi="defaults write com.apple.dt.Xcode IDEIndexDisable 1"
-alias g1="open ~/Repo/RingCentral-iOS/Glip/Glip.xcworkspace"
-alias g2="cd ~/Repo/duplicates/RingCentral-iOS/ && open ~/Repo/duplicates/RingCentral-iOS/Glip/Glip.xcworkspace"
 alias zl="z -l"
 alias zc="z -c"
 alias path='echo -e ${PATH//:/\\n}'
+alias gr="cd \$(git root)"

@@ -54,5 +54,10 @@ brew install oath-toolkit
 brew install tmux
 brew install zsh-autosuggestions zsh-syntax-highlighting z
 
+# useful app
+brew install mos
+brew install --cask goldendict
+
+
 # Remove outdated versions from the cellar.
 brew cleanup
