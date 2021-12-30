@@ -1,7 +1,7 @@
 [core]
 	excludesfile = ~/.gitignore
 	longpaths = true
-	pager = less -F -X
+	pager = less -FXi
 	autocrlf = false
 [diff]
     tool = meld
@@ -14,11 +14,12 @@
 [alias]
 	co = checkout
 	cm = commit --message
+    s = status -sb
 	st = status -s
 	br = branch
     lo = log --pretty=format:"%C(yellow)%h%x09%C(blue)%>(12)%an%x09%C(red)%ad%x09%Creset%s" --date=relative
     lof = log --pretty=format:"%C(yellow)%h%x09%C(blue)%>(12)%an%x09%C(red)%ad%x09%Creset%s" --date=rfc
-    fo = fetch origin
+    f=fetch
 	cof = !git for-each-ref --format='%(refname:short)' refs/heads | fzf | xargs git checkout
     su= submodule update --init --recursive
     rsu= reset --hard --recurse-submodule
@@ -32,6 +33,5 @@
   show-merge = "!sh -c 'merge=$(git find-merge $0 $1) && [ -n \"$merge\" ] && git show $merge'"
 [color]
 	ui = auto
-[user]
-	email = xyx19961107@qq.com
-	name = Lonenso
+[fetch]
+    prune = true
