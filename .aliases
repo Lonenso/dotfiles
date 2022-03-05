@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 
 alias g="git"
-alias gs="g status"
+alias gs="g status -sb"
+alias gf="git fetch"
 alias ez="exec zsh"
 alias vz="vim ~/.zshrc"
-alias ghs="git rev-parse --short HEAD"
-alias gds="git diff --staged"
+alias ghs="git rev-parse --short"
 alias sti="defaults write com.apple.dt.Xcode IDEIndexDisable 0"
 alias soi="defaults write com.apple.dt.Xcode IDEIndexDisable 1"
 alias zl="z -l"
 alias zc="z -c"
 alias path='echo -e ${PATH//:/\\n}'
 alias gr="cd \$(git root)"
+alias gcss="git conflicts | xargs git status -s"

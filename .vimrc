@@ -61,7 +61,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'octol/vim-cpp-enhanced-highlight'
 	Plug 'vim-airline/vim-airline'
     Plug 'mhinz/vim-signify'
-    Plug 'valloric/youcompleteme', { 'do' : function('BuildYCM')}
+    "Plug 'valloric/youcompleteme', { 'do' : function('BuildYCM')}
     Plug 'skanehira/preview-uml.vim'
     Plug 'jremmen/vim-ripgrep'
     Plug 'tpope/vim-abolish'
@@ -137,6 +137,11 @@ imap <Down> <Nop>
 nmap <C-e> :NERDTreeToggle<CR>
 " Fzf
 nnoremap <leader><leader> :Files<CR>
+nnoremap <leader>fi       :Files<CR>
+nnoremap <leader>C        :Colors<CR>
+nnoremap <leader><CR>     :Buffers<CR>
+nnoremap <leader>fl       :Lines<CR>
+nnoremap <leader>m        :History<CR>
 nnoremap <leader>rg :Rg
 inoremap <expr> <c-x><c-f> fzf#vim#complete#path(
     \ "find . -path '*/\.*' -prune -o -print \| sed '1d;s:^..::'",
@@ -144,8 +149,43 @@ inoremap <expr> <c-x><c-f> fzf#vim#complete#path(
 " Command
 command -nargs=1 Count :%s/<args>//gn
 
+" expand
+nmap ,cs :let @+=expand("%") . ':' . line(".")<CR>
 " clangd
 " Let clangd fully control code completion
 let g:ycm_clangd_uses_ycmd_caching = 0
 " Use installed clangd, not YCM-bundled clangd which doesn't get updates.
 let g:ycm_clangd_binary_path = exepath("clangd")
+
+" Copy matches of the last search to a register (default is the clipboard).
+" Accepts a range (default is whole file).
+" 'CopyMatches'   copy matches to clipboard (each match has \n added).
+" 'CopyMatches x' copy matches to register x (clears register first).
+" 'CopyMatches X' append matches to register x.
+" We skip empty hits to ensure patterns using '\ze' don't loop forever.
+command! -range=% -register CopyMatches call s:CopyMatches(<line1>, <line2>, '<reg>')
+function! s:CopyMatches(line1, line2, reg)
+  let hits = []
+  for line in range(a:line1, a:line2)
+    let txt = getline(line)
+    let idx = match(txt, @/)
+    while idx >= 0
+      let end = matchend(txt, @/, idx)
+      if end > idx
+	call add(hits, strpart(txt, idx, end-idx))
+      else
+	let end += 1
+      endif
+      if @/[0] == '^'
+        break  " to avoid false hits
+      endif
+      let idx = match(txt, @/, end)
+    endwhile
+  endfor
+  if len(hits) > 0
+    let reg = empty(a:reg) ? '+' : a:reg
+    execute 'let @'.reg.' = join(hits, "\n") . "\n"'
+  else
+    echo 'No hits'
+  endif
+endfunction

@@ -14,3 +14,7 @@ function swap() {
 function fghs() {
     git submodule foreach 'echo $sm_path `git rev-parse --short HEAD`'
 }
+
+function cf() {
+    cheat -l | tail -n +2 | cut -d ' ' -f 1 | fzf | xargs -I{} cheat {}
+}
