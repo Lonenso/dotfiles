@@ -1,28 +1,12 @@
 #!/usr/bin/env bash
-
-cd "$(dirname "$0")"
-
-git pull origin main;
-
+cd "${0/*}" || exit 1
+echo "sync dotfiles..."
+git pull origin main
 function doIt() {
-	rsync --exclude ".git/" \
-		--exclude ".DS_Store" \
-		--exclude ".osx" \
-		--exclude "bootstrap.sh" \
-        --exclude "brew.sh" \
-		--exclude "README.md" \
-		--exclude "LICENSE" \
-		-avh --no-perms . ~;
+    for file in .{aliases,env,exports,functions,gitconfig,gitignore,macos,tmux.conf,vimrc,zshrc}; do
+        ln -sf "$(pwd)/${file}" "${HOME}/${file}"
+    done;
+    unset file;
     exec zsh
 }
-
-if [ "$1" == "--force" -o "$1" == "-f" ]; then
-	doIt;
-else
-	read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1;
-	echo "";
-	if [[ $REPLY =~ ^[Yy]$ ]]; then
-		doIt;
-	fi;
-fi;
-unset doIt;
+unset doIt
