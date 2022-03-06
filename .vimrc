@@ -190,4 +190,8 @@ nmap <leader>cs :let @+=expand("%") . ':' . line(".")<CR>
 let g:ycm_clangd_uses_ycmd_caching = 0
 " Use installed clangd, not YCM-bundled clangd which doesn't get updates.
 let g:ycm_clangd_binary_path = exepath("clangd")
+" Change swp and backup files location
+" macosx needs to use TMPDIR not TEMPDIR
+set backupdir=$TMPDIR//
+set directory=$TMPDIR//
 
