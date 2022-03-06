@@ -21,6 +21,6 @@ export PATH="/usr/local/opt/sqlite/bin:$PATH"
 #For compilers to find llvm you may need to set:
 #  export LDFLAGS="-L/usr/local/opt/llvm/lib"
 #  export CPPFLAGS="-I/usr/local/opt/llvm/include"
-export PATH="/usr/local/opt/llvm/bin:$PATH"'
+export PATH="/usr/local/opt/llvm/bin:$PATH"
 # cheat integrate with fzf
 export CHEAT_USE_FZF=true
