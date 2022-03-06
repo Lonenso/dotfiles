@@ -119,44 +119,6 @@ let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
 let g:rg_highlight = 1
 "ripgrep setting end
 
-" mapping 
-inoremap jj <Esc>
-nmap <C-p> :FZF<CR>
-nmap <C-h> <C-w>h
-nmap <C-j> <C-w>j 
-nmap <C-k> <C-w>k
-nmap <C-l> <C-w>l
-map <Left> <Nop>
-map <Right> <Nop>
-map <Up> <Nop>
-map <Down> <Nop>
-imap <Left> <Nop>
-imap <Right> <Nop>
-imap <Up> <Nop>
-imap <Down> <Nop>
-nmap <C-e> :NERDTreeToggle<CR>
-" Fzf
-nnoremap <leader><leader> :Files<CR>
-nnoremap <leader>fi       :Files<CR>
-nnoremap <leader>C        :Colors<CR>
-nnoremap <leader><CR>     :Buffers<CR>
-nnoremap <leader>fl       :Lines<CR>
-nnoremap <leader>m        :History<CR>
-nnoremap <leader>rg :Rg
-inoremap <expr> <c-x><c-f> fzf#vim#complete#path(
-    \ "find . -path '*/\.*' -prune -o -print \| sed '1d;s:^..::'",
-    \ fzf#wrap({'dir': expand('%:p:h')}))
-" Command
-command -nargs=1 Count :%s/<args>//gn
-
-" expand
-nmap ,cs :let @+=expand("%") . ':' . line(".")<CR>
-" clangd
-" Let clangd fully control code completion
-let g:ycm_clangd_uses_ycmd_caching = 0
-" Use installed clangd, not YCM-bundled clangd which doesn't get updates.
-let g:ycm_clangd_binary_path = exepath("clangd")
-
 " Copy matches of the last search to a register (default is the clipboard).
 " Accepts a range (default is whole file).
 " 'CopyMatches'   copy matches to clipboard (each match has \n added).
@@ -189,3 +151,43 @@ function! s:CopyMatches(line1, line2, reg)
     echo 'No hits'
   endif
 endfunction
+
+" mapping 
+map <Space> <Leader>
+inoremap jj <Esc>
+nmap <C-p> :FZF<CR>
+nmap <C-h> <C-w>h
+nmap <C-j> <C-w>j 
+nmap <C-k> <C-w>k
+nmap <C-l> <C-w>l
+map <Left> <Nop>
+map <Right> <Nop>
+map <Up> <Nop>
+map <Down> <Nop>
+imap <Left> <Nop>
+imap <Right> <Nop>
+imap <Up> <Nop>
+imap <Down> <Nop>
+nmap <C-e> :NERDTreeToggle<CR>
+" Fzf
+nnoremap <leader>fi       :Files<CR>
+nnoremap <leader>C        :Colors<CR>
+nnoremap <leader><CR>     :Buffers<CR>
+nnoremap <leader>fl       :Lines<CR>
+nnoremap <leader>m        :History<CR>
+nnoremap <leader>r        :Rg
+nnoremap <leader>cm       :CopyMatches<CR>
+inoremap <expr> <c-x><c-f> fzf#vim#complete#path(
+    \ "find . -path '*/\.*' -prune -o -print \| sed '1d;s:^..::'",
+    \ fzf#wrap({'dir': expand('%:p:h')}))
+" Command
+command -nargs=1 Count :%s/<args>//gn
+
+" expand
+nmap <leader>cs :let @+=expand("%") . ':' . line(".")<CR>
+" clangd
+" Let clangd fully control code completion
+let g:ycm_clangd_uses_ycmd_caching = 0
+" Use installed clangd, not YCM-bundled clangd which doesn't get updates.
+let g:ycm_clangd_binary_path = exepath("clangd")
+
