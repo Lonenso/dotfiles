@@ -37,3 +37,8 @@
     ui = auto
 [fetch]
     prune = true
+[user]
+	name = Lonenso
+	email = xyx19961107@qq.com
+[includeIf "gitdir:~/work/"]
+    path = ~/work/.gitconfig
