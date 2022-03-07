@@ -25,6 +25,7 @@
     su= submodule update --init --recursive
     dft=difftool --dir-diff
     conflicts = diff --name-only --diff-filter=U
+    root=rev-parse --show-toplevel
 [merge]
     tool = meld
 [mergetool "meld"]

@@ -9,4 +9,5 @@ function doIt() {
     unset file;
     exec zsh
 }
+doIt
 unset doIt
