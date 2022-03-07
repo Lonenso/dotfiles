@@ -40,6 +40,7 @@ set iskeyword+=-
 set updatetime=100
 set nowrap
 set matchpairs+=<:>
+set nofixendofline
 
 function! BuildYCM(info)
   " info is a dictionary with 3 fields
@@ -169,6 +170,8 @@ imap <Right> <Nop>
 imap <Up> <Nop>
 imap <Down> <Nop>
 nmap <C-e> :NERDTreeToggle<CR>
+" fugitive
+nnoremap <leader>g        :G
 " Fzf
 nnoremap <leader>fi       :Files<CR>
 nnoremap <leader>C        :Colors<CR>
