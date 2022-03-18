@@ -1,0 +1,16 @@
+antigen use oh-my-zsh
+
+antigen bundles <<EOBUNDLES
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-completions
+zsh-users/zsh-syntax-highlighting
+command-not-found
+colored-man
+extract
+sudo
+rupa/z
+EOBUNDLES
+
+antigen theme romkatv/powerlevel10k
+
+antigen apply
