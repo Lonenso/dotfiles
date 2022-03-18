@@ -5,9 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-if [ "$(uname -s)" = "Darwin" ]; then
-    source /usr/local/share/antigen/antigen.zsh
-fi 
+source /usr/local/share/antigen/antigen.zsh
 antigen init ~/.antigenrc
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
