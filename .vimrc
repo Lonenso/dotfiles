@@ -195,6 +195,9 @@ let g:ycm_clangd_uses_ycmd_caching = 0
 let g:ycm_clangd_binary_path = exepath("clangd")
 " Change swp and backup files location
 " macosx needs to use TMPDIR not TEMPDIR
-set backupdir=$TMPDIR//
-set directory=$TMPDIR//
 
+if system('uname -s') == "Darwin\n"
+    set backupdir=$TMPDIR//
+    set directory=$TMPDIR//
+else
+endif
