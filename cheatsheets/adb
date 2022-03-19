@@ -1,5 +1,0 @@
-adb shell <src> <dst>
-adb pull  <src> <dst>
-adb -s <device> root
-adb push <src> <dst>
-adb devices

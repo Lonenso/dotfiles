@@ -1,7 +1,0 @@
-abcdefg         #fuzzy-match
-'abcdefg        #exact-match
-^abcdefg        #prefix-exact-match
-abcdefg$        #suffix-exact-match
-!abcdefg        #inverse-exact-match
-!^abcdefg       #inverse-prefix-exact-match
-!abcdefg$       #inverse-suffix-exact-match
