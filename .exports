@@ -11,6 +11,7 @@ export PATH="/usr/local/opt/bison/bin:$PATH"
 export JENV_ROOT=/usr/local/opt/jenv
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
+export CHEAT_CONFIG_PATH="$HOME/.cheat.yml"
 #llvm is keg-only, which means it was not symlinked into /usr/local,
 #because macOS already provides this software and installing another version in
 #parallel can cause all kinds of trouble.
