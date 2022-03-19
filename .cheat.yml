@@ -47,19 +47,19 @@ cheatpaths:
   # Once downloaded, ensure that 'path' below points to the location at which
   # you downloaded the community cheatsheets.
   - name: community
-    path: /Users/peter.xie/.config/cheat/cheatsheets/community
+    path: ~/cheatsheets/community
     tags: [ community ]
     readonly: true
 
   # If you have personalized cheatsheets, list them last. They will take
   # precedence over the more global cheatsheets.
   - name: personal
-    path: /Users/peter.xie/.config/cheat/cheatsheets/cheatsheet
+    path: ~/cheatsheets/cheatsheet
     tags: [ personal ]
     readonly: false
 
   - name: zh-community
-    path: /Users/peter.xie/.config/cheat/cheatsheets/zh-community
+    path: ~/cheatsheets/zh-community
     tags: [ zh-community ]
     readonly: false
 
