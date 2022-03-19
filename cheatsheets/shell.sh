@@ -10,3 +10,7 @@ cd "${0%/*}"
 
 # eval command 
 # https://unix.stackexchange.com/questions/23111/what-is-the-eval-command-in-bash
+
+# traverse array having only one element in bash
+for i in .{a,b,c} {cheat,}; do echo $i; done
+
