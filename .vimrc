@@ -66,6 +66,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'skanehira/preview-uml.vim'
     Plug 'jremmen/vim-ripgrep'
     Plug 'tpope/vim-abolish'
+    Plug 'tpope/vim-unimpaired'
 call plug#end()
 "ale setting 
 "let g:ale_completion_enabled = 1
