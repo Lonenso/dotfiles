@@ -64,7 +64,7 @@ cheatpaths:
     path: ~/cheatsheets/zh-community
     source: https://github.com/skywind3000/awesome-cheatsheets.git
     tags: [ zh-community ]
-    readonly: false
+    readonly: true
 
   # While it requires no configuration here, it's also worth noting that
   # 'cheat' will automatically append directories named '.cheat' within the
