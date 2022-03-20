@@ -48,7 +48,7 @@ cheatpaths:
   # you downloaded the community cheatsheets.
   - name: community
     path: ~/cheatsheets/community
-    source: https://github.com/cheat/cheatsheets.git 
+    source: git@github.com:cheat/cheatsheets.git 
     tags: [ community ]
     readonly: true
 
