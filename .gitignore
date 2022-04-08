@@ -3,6 +3,14 @@ meta.cpp
 patch.txt
 .DS_STORE
 .idea/
+*.udb
+compile_commands.json
+g.csv
+uml_in_node.wsd
+uml_out_node.wsd
+dep.csv
+options.txt
+xcuserdata/
 #############################
 # C++
 #############################
