@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 alias g="git"
-alias gs="g status -sb"
+alias gs="g ss"
 alias gf="git fetch"
 alias ez="exec zsh"
 alias vz="vim ~/.zshrc"

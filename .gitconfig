@@ -17,6 +17,7 @@
     ca = commit --amend
     sw = switch
     s = status -sb
+    ss = "!sh -c 'basename $(git rev-parse --show-toplevel); git status -sb'"
     br = branch
     lo = log --pretty=format:"%C(yellow)%h%x09%C(blue)%>(12)%an%x09%C(red)%ad%x09%Creset%s" --date=relative
     lof = log --pretty=format:"%C(yellow)%h%x09%C(blue)%>(12)%an%x09%C(red)%ad%x09%Creset%s" --date=rfc
