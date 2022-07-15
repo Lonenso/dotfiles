@@ -1,0 +1,16 @@
+source ~/.vimrc
+
+set clipboard+=ideaput
+set clipboard+=unnamed
+nnoremap \e :e ~/.ideavimrc<CR>
+nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+nnoremap \z :action ToggleDistractionFreeMode<CR>
+
+nnoremap <TAB> :action PreviousTab<CR>
+nnoremap <s-TAB> :action NextTab<CR>
+
+nnoremap <leader>h :action CallHierarchy<CR>
+nnoremap <c-s> :action FileStructurePopup<CR>
+nnoremap ga :action GoToMenu<CR>
+nnoremap gi :action GotoImplementation<CR>
+nnoremap gd :action GotoDeclaration<CR>

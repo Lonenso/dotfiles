@@ -26,7 +26,7 @@ set hlsearch
 set incsearch
 set backspace=2
 if system('uname -s') == "Darwin\n"
-  set clipboard=unnamed "OSX
+  set clipboard+=unnamed "OSX
 else
   set clipboard=unnamedplus "Linux
 endif
@@ -62,11 +62,13 @@ call plug#begin('~/.vim/plugged')
     Plug 'octol/vim-cpp-enhanced-highlight'
 	Plug 'vim-airline/vim-airline'
     Plug 'mhinz/vim-signify'
-    "Plug 'valloric/youcompleteme', { 'do' : function('BuildYCM')}
+    Plug 'valloric/youcompleteme', { 'do' : function('BuildYCM')}
     Plug 'skanehira/preview-uml.vim'
     Plug 'jremmen/vim-ripgrep'
     Plug 'tpope/vim-abolish'
     Plug 'tpope/vim-unimpaired'
+    Plug 'ziglang/zig.vim'
+    Plug 'tpope/vim-commentary'
 call plug#end()
 "ale setting 
 "let g:ale_completion_enabled = 1
@@ -155,7 +157,7 @@ function! s:CopyMatches(line1, line2, reg)
 endfunction
 
 " mapping 
-map <Space> <Leader>
+let mapleader = " "
 inoremap jj <Esc>
 nmap <C-p> :FZF<CR>
 nmap <C-h> <C-w>h
@@ -184,6 +186,8 @@ nnoremap <leader>cm       :CopyMatches<CR>
 inoremap <expr> <c-x><c-f> fzf#vim#complete#path(
     \ "find . -path '*/\.*' -prune -o -print \| sed '1d;s:^..::'",
     \ fzf#wrap({'dir': expand('%:p:h')}))
+nmap <c-k> :m-2<CR>  
+nmap <c-j> :m+1<CR>
 " Command
 command -nargs=1 Count :%s/<args>//gn
 

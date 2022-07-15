@@ -1,26 +1,11 @@
 #!/usr/bin/env bash
 
 export EDITOR='vim'
-export GEM_HOME=$HOME/.gem/ruby/2.6.0
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.local/bin:$GEM_HOME/bin:$COMMAND_HOME:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+export PATH="$HOME/.local/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:/usr/local/opt/bison/bin:$HOME/go/bin:/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/opt/sqlite/bin:$PATH"
 export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
 export THEOS=~/theos
-export PATH="/usr/local/opt/bison/bin:$PATH"
-export PATH="$HOME/go/bin:$PATH"
-export JENV_ROOT=/usr/local/opt/jenv
-export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/sqlite/bin:$PATH"
 export CHEAT_CONFIG_PATH="$HOME/.cheat.yml"
-#llvm is keg-only, which means it was not symlinked into /usr/local,
-#because macOS already provides this software and installing another version in
-#parallel can cause all kinds of trouble.
-#
-#If you need to have llvm first in your PATH, run:
-#  echo 'export PATH="/usr/local/opt/llvm/bin:$PATH"' >> ~/.zshrc
-#
-#For compilers to find llvm you may need to set:
-#  export LDFLAGS="-L/usr/local/opt/llvm/lib"
-#  export CPPFLAGS="-I/usr/local/opt/llvm/include"
-export PATH="/usr/local/opt/llvm/bin:$PATH"
 # cheat integrate with fzf
 export CHEAT_USE_FZF=true
+# nnn plugins
+export NNN_PLUG='f:finder;o:fzopen;p:mocq;d:diffs;t:nmount;v:imgview'

@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m'
 
 function tmp() {
     f=$(mktemp)
     vim "$f"
-    echo "$f"
+    echo "$f" | pbcopy
 }
 
 function swap() {
@@ -17,4 +20,40 @@ function fghs() {
 
 function cf() {
     cheat -l | tail -n +2 | cut -d ' ' -f 1 | fzf | xargs -I{} cheat {}
+}
+
+# read content file and use ripgrep to check if line is matched or not
+function match() {
+    f=$1
+
+    if [ ! -f "$f" ]; then 
+        echo "file $f not exist, quit!"
+        return 1
+    fi
+    tmp=$(mktemp)
+    while read -u 9 item
+    do 
+        if rg -q "${item}"; then
+            echo -e "${GREEN}matched ${item}${NC}" >> "${tmp}"
+        else
+            echo -e "${RED}not matched ${item}${NC}" >> "${tmp}"
+        fi
+    done 9< "$f"
+    sort "${tmp}"
+}
+
+function match_more() {
+    f=$1
+
+    if [ ! -f "$f" ]; then 
+        echo "file $f not exist, quit!"
+        return 1
+    fi
+    while read -u 9 item
+    do 
+        if rg -q "${item}"; then
+            echo "${item}"
+            rg -l "${item}"
+        fi
+    done 9< "$f"
 }
