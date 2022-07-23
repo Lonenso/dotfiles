@@ -1,8 +1,10 @@
-bundler  2.3.18
+bazel 5.2.0
+bundler  2.3.17
 coursier  2.1.0-M6-28-gbad85693f
 golang 1.18.4
 haskell 9.0-latest
 java openjdk-18
+kotlin 1.7.10
 lua 5.4.4
 nodejs 18.5.0
 python 3.10.5
