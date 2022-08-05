@@ -69,6 +69,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-unimpaired'
     Plug 'ziglang/zig.vim'
     Plug 'tpope/vim-commentary'
+    Plug 'majutsushi/tagbar'
+    Plug 'universal-ctags/ctags'
 call plug#end()
 "ale setting 
 "let g:ale_completion_enabled = 1
@@ -174,7 +176,6 @@ imap <Up> <Nop>
 imap <Down> <Nop>
 nmap <C-e> :NERDTreeToggle<CR>
 " fugitive
-nnoremap <leader>g        :G
 " Fzf
 nnoremap <leader>fi       :Files<CR>
 nnoremap <leader>C        :Colors<CR>
@@ -188,6 +189,10 @@ inoremap <expr> <c-x><c-f> fzf#vim#complete#path(
     \ fzf#wrap({'dir': expand('%:p:h')}))
 nmap <c-k> :m-2<CR>  
 nmap <c-j> :m+1<CR>
+nmap <c-s> :TagbarToggle<CR>
+nmap <c-a> :NERDTreeFind<CR>
+" ycm 
+nnoremap <leader>gd       :YcmCompleter GoToDeclaration<CR>
 " Command
 command -nargs=1 Count :%s/<args>//gn
 
