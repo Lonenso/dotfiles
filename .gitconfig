@@ -10,7 +10,7 @@
 [difftool "meld"]
     cmd = meld "$LOCAL" "$REMOTE"
 [commit]
-	template = /Users/peter.xie/.git-commit-template.txt
+	template = ~/.git-commit-template.txt
 [alias]
     co = checkout
     cm = commit --message

@@ -5,7 +5,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-source /usr/local/share/antigen/antigen.zsh
+### brew
+if [ "$OSTYPE" = "linux-gnu" ]; then
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+fi
+
+source $(brew --prefix)/share/antigen/antigen.zsh
 antigen init ~/.antigenrc
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
