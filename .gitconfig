@@ -2,7 +2,7 @@
     excludesfile = ~/.gitignore
     longpaths = true
     pager = less -FXi
-    autocrlf = false
+    autocrlf = input
     quotepath = false
 [diff]
     tool = meld
