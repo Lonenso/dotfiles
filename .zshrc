@@ -6,12 +6,13 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 ### brew
-if [ "$OSTYPE" = "linux-gnu" ]; then
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
-source $(brew --prefix)/share/antigen/antigen.zsh
-antigen init ~/.antigenrc
+[ -f "$(brew --prefix antigen)/share/antigen/antigen.zsh" ] && source "$(brew --prefix antigen)/share/antigen/antigen.zsh"
+# don't add quotation mark around tilde(~)
+[ -f ~/.antigenrc ] && antigen init ~/.antigenrc
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
