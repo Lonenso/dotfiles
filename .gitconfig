@@ -3,6 +3,7 @@
     longpaths = true
     pager = less -FXi
     autocrlf = false
+    quotepath = false
 [diff]
     tool = meld
 [difftool]
