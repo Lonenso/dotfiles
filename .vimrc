@@ -211,3 +211,4 @@ if system('uname -s') == "Darwin\n"
     set directory=$TMPDIR//
 else
 endif
+" set rtp+=/home/linuxbrew/.linuxbrew/opt/fzf
