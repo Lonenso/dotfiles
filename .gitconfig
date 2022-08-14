@@ -45,6 +45,9 @@
 	email = xyx19961107@qq.com
 [includeIf "gitdir:~/work/"]
     path = ~/work/.gitconfig
+# change autocrlf to true on windows 
+[includeIf "gitdir/i:C:/Users"]
+    path = ~/.gitconfig-windows
 [filter "lfs"]
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
@@ -52,3 +55,5 @@
 	clean = git-lfs clean -- %f
 [push]
 	autoSetupRemote = true
+[credential "helperselector"]
+	selected = manager-core

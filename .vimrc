@@ -25,10 +25,13 @@ set showtabline=2
 set hlsearch
 set incsearch
 set backspace=2
-if system('uname -s') == "Darwin\n"
-  set clipboard+=unnamed "OSX
-else
-  set clipboard=unnamedplus "Linux
+
+if has("unix")
+    if has("mac")
+      set clipboard+=unnamed "OSX
+    else
+      set clipboard=unnamedplus "Linux
+    endif
 endif
 set visualbell t_vb=
 set autoread
@@ -51,8 +54,10 @@ function! BuildYCM(info)
     !./install.py
   endif
 endfunction
-
-call plug#begin('~/.vim/plugged')
+" The default plugin directory will be as follows:
+"   - Vim (Linux/macOS): '~/.vim/plugged'
+"   - Vim (Windows): '~/vimfiles/plugged'
+call plug#begin()
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
 	Plug 'tpope/vim-fugitive'
@@ -71,6 +76,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-commentary'
     Plug 'majutsushi/tagbar'
     Plug 'universal-ctags/ctags'
+    Plug 'dracula/vim', { 'as': 'dracula' }
 call plug#end()
 "ale setting 
 "let g:ale_completion_enabled = 1
@@ -206,9 +212,18 @@ let g:ycm_clangd_binary_path = exepath("clangd")
 " Change swp and backup files location
 " macosx needs to use TMPDIR not TEMPDIR
 
-if system('uname -s') == "Darwin\n"
-    set backupdir=$TMPDIR//
-    set directory=$TMPDIR//
-else
+if has("unix")
+    if has("mac")
+        set backupdir=$TMPDIR//
+        set directory=$TMPDIR//
+    endif
 endif
 " set rtp+=/home/linuxbrew/.linuxbrew/opt/fzf
+" WSL yank support
+let s:clip = '/mnt/c/Windows/System32/clip.exe'  " change this path according to your mount point
+if executable(s:clip)
+    augroup WSLYank
+        autocmd!
+        autocmd TextYankPost * if v:event.operator ==# 'y' | call system(s:clip, @0) | endif
+    augroup END
+endif
