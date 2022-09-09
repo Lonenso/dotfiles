@@ -77,6 +77,8 @@ call plug#begin()
     Plug 'majutsushi/tagbar'
     Plug 'universal-ctags/ctags'
     Plug 'dracula/vim', { 'as': 'dracula' }
+    Plug 'godlygeek/tabular'
+    Plug 'preservim/vim-markdown'
 call plug#end()
 "ale setting 
 "let g:ale_completion_enabled = 1

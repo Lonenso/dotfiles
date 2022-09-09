@@ -9,3 +9,5 @@ export CHEAT_CONFIG_PATH="$HOME/.cheat.yml"
 export CHEAT_USE_FZF=true
 # nnn plugins
 export NNN_PLUG='f:finder;o:fzopen;p:mocq;d:diffs;t:nmount;v:imgview'
+HISTSIZE=999999999
+SAVEHIST=$HISTSIZE
