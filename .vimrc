@@ -79,6 +79,7 @@ call plug#begin()
     Plug 'dracula/vim', { 'as': 'dracula' }
     Plug 'godlygeek/tabular'
     Plug 'preservim/vim-markdown'
+    Plug 'kopischke/vim-fetch'
 call plug#end()
 "ale setting 
 "let g:ale_completion_enabled = 1
