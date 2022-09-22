@@ -30,7 +30,7 @@
     conflicts = diff --name-only --diff-filter=U
     root=rev-parse --show-toplevel
 [merge]
-    tool = meld
+    tool = fugitive
 [mergetool "meld"]
     cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
 [alias]
@@ -57,3 +57,6 @@
 	autoSetupRemote = true
 [credential "helperselector"]
 	selected = manager-core
+[mergetool "fugitive"]
+	; cmd = vim -f -c \"Gvdiffsplit!\" \"$MERGED\"   ; 4-way
+    cmd = vimdiff \"$LOCAL\" \"$MERGED\" \"$REMOTE\" ; 3-way

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 alias g="git"
-alias gs="g ss"
+alias gs="g s"
 alias gf="git fetch"
 alias ez="exec -l zsh"
 alias vz="vim ~/.zshrc"
@@ -14,6 +14,5 @@ alias path='echo -e ${PATH//:/\\n}'
 alias gr="cd \$(git root)"
 alias gcss="git conflicts | xargs git status -s"
 alias gcp="git cherry-pick"
-alias clion="open -a CLion.app"
 alias pip="python -m pip"
 alias bu4="brew update && brew upgrade && brew cleanup && brew autoremove"
