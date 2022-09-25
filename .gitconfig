@@ -5,11 +5,13 @@
     autocrlf = input
     quotepath = false
 [diff]
-    tool = meld
+    tool = fugitive
 [difftool]
     prompt = false
 [difftool "meld"]
     cmd = meld "$LOCAL" "$REMOTE"
+[difftool "fugitive"]
+    cmd = vimdiff \"$LOCAL\" \"$REMOTE\"
 [commit]
 	template = ~/.git-commit-template.txt
 [alias]

@@ -233,5 +233,5 @@ endif
 
 if &diff
     syntax off
-    colorscheme dracula
+    colorscheme evening
 endif
