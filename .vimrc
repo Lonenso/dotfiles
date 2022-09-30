@@ -12,6 +12,8 @@ set autoindent
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+set textwidth=80
+set colorcolumn=+1
 set smarttab
 set expandtab
 set smartindent
@@ -25,6 +27,10 @@ set showtabline=2
 set hlsearch
 set incsearch
 set backspace=2
+set nojoinspaces
+set list listchars=tab:»·,trail:·,nbsp:·
+set modelines=0
+set autowrite
 
 if has("unix")
     if has("mac")
@@ -80,6 +86,8 @@ call plug#begin()
     Plug 'godlygeek/tabular'
     Plug 'preservim/vim-markdown'
     Plug 'kopischke/vim-fetch'
+    Plug 'tpope/vim-repeat'
+    Plug 'tpope/vim-speeddating'
 call plug#end()
 "ale setting 
 "let g:ale_completion_enabled = 1
@@ -170,7 +178,6 @@ endfunction
 " mapping 
 let mapleader = " "
 inoremap jj <Esc>
-nmap <C-p> :FZF<CR>
 nmap <C-h> <C-w>h
 nmap <C-j> <C-w>j 
 nmap <C-k> <C-w>k
@@ -186,7 +193,7 @@ imap <Down> <Nop>
 nmap <C-e> :NERDTreeToggle<CR>
 " fugitive
 " Fzf
-nnoremap <leader>fi       :Files<CR>
+nnoremap <c-p>            :Files<CR>
 nnoremap <leader>C        :Colors<CR>
 nnoremap <leader><CR>     :Buffers<CR>
 nnoremap <leader>fl       :Lines<CR>
@@ -199,7 +206,13 @@ inoremap <expr> <c-x><c-f> fzf#vim#complete#path(
 nmap <c-k> :m-2<CR>  
 nmap <c-j> :m+1<CR>
 nmap <c-s> :TagbarToggle<CR>
-nmap <c-a> :NERDTreeFind<CR>
+cnoremap <C-A>		<Home>
+cnoremap <C-E>		<End>
+cnoremap <C-K>		<C-U>
+
+cnoremap <C-P> <Up>
+cnoremap <C-N> <Down>
+" nmap <c-a> :NERDTreeFind<CR>
 " ycm 
 nnoremap <leader>gd       :YcmCompleter GoToDeclaration<CR>
 " Command
@@ -234,4 +247,11 @@ endif
 if &diff
     syntax off
     colorscheme evening
+endif
+" Always use vertical diffs
+set diffopt+=vertical
+
+" Local config
+if filereadable($HOME . "/.vimrc.local")
+  source ~/.vimrc.local
 endif
