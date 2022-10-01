@@ -30,7 +30,12 @@ set backspace=2
 set nojoinspaces
 set list listchars=tab:»·,trail:·,nbsp:·
 set modelines=0
-set autowrite
+" set autowrite
+set hidden
+set so=1
+set display+=lastline
+set sidescroll=10
+set whichwrap+=h,l
 
 if has("unix")
     if has("mac")
@@ -45,7 +50,6 @@ set nobackup
 set nowritebackup
 set wildmenu
 set wildmode=longest:list,full
-set iskeyword+=-
 set updatetime=100
 set nowrap
 set matchpairs+=<:>
@@ -191,6 +195,9 @@ imap <Right> <Nop>
 imap <Up> <Nop>
 imap <Down> <Nop>
 nmap <C-e> :NERDTreeToggle<CR>
+if maparg('<C-L>', 'n') ==# ''
+    nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+endif
 " fugitive
 " Fzf
 nnoremap <c-p>            :Files<CR>
