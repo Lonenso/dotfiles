@@ -6,6 +6,7 @@
     quotepath = false
 [diff]
     tool = fugitive
+	renameLimit = 1569
 [difftool]
     prompt = false
 [difftool "meld"]
@@ -62,3 +63,5 @@
 [mergetool "fugitive"]
 	; cmd = vim -f -c \"Gvdiffsplit!\" \"$MERGED\"   ; 4-way
     cmd = vimdiff \"$LOCAL\" \"$MERGED\" \"$REMOTE\" ; 3-way
+[http]
+	postBuffer = 524288000

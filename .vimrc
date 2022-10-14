@@ -9,7 +9,7 @@ set encoding=utf-8
 set fileencoding=utf-8
 set t_Co=256
 set autoindent
-set tabstop=4
+" set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set textwidth=80
@@ -24,6 +24,7 @@ set splitbelow
 set splitright
 set ruler
 set showtabline=2
+set showmatch
 set hlsearch
 set incsearch
 set backspace=2
@@ -36,6 +37,8 @@ set so=1
 set display+=lastline
 set sidescroll=10
 set whichwrap+=h,l
+set ttimeout
+set ttimeoutlen=100
 
 if has("unix")
     if has("mac")
@@ -52,6 +55,7 @@ set wildmenu
 set wildmode=longest:list,full
 set updatetime=100
 set nowrap
+set nowrapscan
 set matchpairs+=<:>
 set nofixendofline
 

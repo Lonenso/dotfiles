@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+alias ls="exa"
 alias g="git"
 alias gs="g s"
 alias gf="git fetch"
