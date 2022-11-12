@@ -136,6 +136,7 @@ brew "milend/taps/hmap"
 brew "sidneys/homebrew/chntpw"
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD"]
 cask "android-platform-tools"
+cask "db-browser-for-sqlite"
 cask "font-fira-code"
 cask "font-hack-nerd-font"
 cask "karabiner-elements"
