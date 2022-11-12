@@ -32,6 +32,8 @@
     dft=difftool --dir-diff
     conflicts = diff --name-only --diff-filter=U
     root=rev-parse --show-toplevel
+    # worktree alias 
+    wl = worktree list
 [merge]
     tool = fugitive
 [mergetool "meld"]

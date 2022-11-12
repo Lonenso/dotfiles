@@ -55,7 +55,6 @@ set wildmenu
 set wildmode=longest:list,full
 set updatetime=100
 set nowrap
-set nowrapscan
 set matchpairs+=<:>
 set nofixendofline
 
@@ -214,8 +213,8 @@ nnoremap <leader>cm       :CopyMatches<CR>
 inoremap <expr> <c-x><c-f> fzf#vim#complete#path(
     \ "find . -path '*/\.*' -prune -o -print \| sed '1d;s:^..::'",
     \ fzf#wrap({'dir': expand('%:p:h')}))
-nmap <c-k> :m-2<CR>  
-nmap <c-j> :m+1<CR>
+" nmap <c-k> :m-2<CR>  
+" nmap <c-j> :m+1<CR>
 nmap <c-s> :TagbarToggle<CR>
 cnoremap <C-A>		<Home>
 cnoremap <C-E>		<End>
