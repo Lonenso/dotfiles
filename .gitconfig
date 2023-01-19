@@ -4,6 +4,7 @@
     pager = less -FXi
     autocrlf = input
     quotepath = false
+    ignorecase = false
 [diff]
     tool = fugitive
 	renameLimit = 1569
@@ -47,7 +48,7 @@
     prune = true
 [user]
 	name = Lonenso
-	email = xyx19961107@qq.com
+	email = isxie.yixin@gmail.com
 [includeIf "gitdir:~/work/"]
     path = ~/work/.gitconfig
 # change autocrlf to true on windows 

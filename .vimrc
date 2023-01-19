@@ -210,6 +210,7 @@ nnoremap <leader>fl       :Lines<CR>
 nnoremap <leader>m        :History<CR>
 nnoremap <leader>r        :Rg
 nnoremap <leader>cm       :CopyMatches<CR>
+nnoremap <Leader>jf       :%!jq . <CR>
 inoremap <expr> <c-x><c-f> fzf#vim#complete#path(
     \ "find . -path '*/\.*' -prune -o -print \| sed '1d;s:^..::'",
     \ fzf#wrap({'dir': expand('%:p:h')}))

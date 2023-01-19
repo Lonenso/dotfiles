@@ -6,7 +6,7 @@ NC='\033[0m'
 function tmp() {
     f=$(mktemp)
     vim "$f"
-    echo "$f"
+    echo "$f" | pbcopy
 }
 
 function swap() {
@@ -56,4 +56,11 @@ function match_more() {
             rg -l "${item}"
         fi
     done 9< "$f"
+}
+
+function gwl() {
+    _path="$(git worktree list | fzf | cut -d ' ' -f1)"
+    if [ ! -z "${_path}" ]; then
+        cd "$_path"
+    fi
 }
