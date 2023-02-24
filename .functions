@@ -64,3 +64,20 @@ function gwl() {
         cd "$_path"
     fi
 }
+
+function ghs() {
+    commitId=${1:-HEAD}
+    git rev-parse --short ${commitId}
+}
+
+function adbwifi() {
+    if ! adb devices | grep -w "device"; then 
+        echo "no devices connected"
+        return 1
+    fi 
+    adb tcpip 5555
+    echo "please unplug the usb cable" 
+    device_addr=$(adb shell ip addr show wlan0 | grep -w 'inet' | cut -d ' ' -f 6 | cut -d '/' -f 1 | tr -d '\n')
+    sleep 5
+    adb connect "${device_addr}:5555"
+}

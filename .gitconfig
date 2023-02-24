@@ -4,10 +4,9 @@
     pager = less -FXi
     autocrlf = input
     quotepath = false
-    ignorecase = false
 [diff]
     tool = fugitive
-	renameLimit = 1569
+    renameLimit = 1569
 [difftool]
     prompt = false
 [difftool "meld"]
@@ -15,7 +14,7 @@
 [difftool "fugitive"]
     cmd = vimdiff \"$LOCAL\" \"$REMOTE\"
 [commit]
-	template = ~/.git-commit-template.txt
+    template = ~/.git-commit-template.txt
 [alias]
     co = checkout
     cm = commit --message
@@ -27,7 +26,8 @@
     lo = log --pretty=format:"%C(yellow)%h%x09%C(blue)%>(12)%an%x09%C(red)%ad%x09%Creset%s" --date=relative
     lof = log --pretty=format:"%C(yellow)%h%x09%C(blue)%>(12)%an%x09%C(red)%ad%x09%Creset%s" --date=rfc
     f=fetch
-    swf = !git for-each-ref --format='%(refname:short)' refs/heads | fzf | xargs git sw
+    swf = !git brv | fzf | cut -d ' ' -f 2 | xargs git sw
+    ; swf = !git for-each-ref --format='%(refname:short)' refs/heads | fzf | xargs git sw
     su= submodule update --init --recursive
     sr= submodule foreach --recursive
     dft=difftool --dir-diff
@@ -35,6 +35,7 @@
     root=rev-parse --show-toplevel
     # worktree alias 
     wl = worktree list
+    db = delete-branch
 [merge]
     tool = fugitive
 [mergetool "meld"]
@@ -42,29 +43,37 @@
 [alias]
     find-merge = "!sh -c 'commit=$0 && branch=${1:-HEAD} && (git rev-list $commit..$branch --ancestry-path | cat -n; git rev-list $commit..$branch --first-parent | cat -n) | sort -k2 -s | uniq -f1 -d | sort -n |  tail -1 | cut -f2'"
     show-merge = "!sh -c 'merge=$(git find-merge $0 $1) && [ -n \"$merge\" ] && git show $merge'"
+    unchanged = update-index --assume-unchanged
+    changed = update-index --no-assume-unchanged
+    show-unchanged = !"git ls-files -v | sed -e 's/^[a-z] //p; d'"
 [color]
     ui = auto
 [fetch]
     prune = true
+    parallel = 0
 [user]
-	name = Lonenso
-	email = isxie.yixin@gmail.com
+    name = Lonenso
+    email = isxie.yixin@gmail.com
 [includeIf "gitdir:~/work/"]
     path = ~/work/.gitconfig
 # change autocrlf to true on windows 
 [includeIf "gitdir/i:C:/Users"]
     path = ~/.gitconfig-windows
 [filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
 [push]
-	autoSetupRemote = true
+    autoSetupRemote = true
 [credential "helperselector"]
-	selected = manager-core
+    selected = manager-core
 [mergetool "fugitive"]
-	; cmd = vim -f -c \"Gvdiffsplit!\" \"$MERGED\"   ; 4-way
+    ; cmd = vim -f -c \"Gvdiffsplit!\" \"$MERGED\"   ; 4-way
     cmd = vimdiff \"$LOCAL\" \"$MERGED\" \"$REMOTE\" ; 3-way
 [http]
-	postBuffer = 524288000
+    postBuffer = 524288000
+[bulkworkspaces]
+    rc = /Users/peter.xie/work/
+[submodule]
+    recurse = true
