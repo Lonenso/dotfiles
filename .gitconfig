@@ -1,12 +1,14 @@
 [core]
-    excludesfile = ~/.gitignore
+    excludesfile = /Users/peter.xie/.gitignore
     longpaths = true
     pager = less -FXi
     autocrlf = input
     quotepath = false
+    fsmonitor = false
+    untrackedcache = true
 [diff]
     tool = fugitive
-    renameLimit = 1569
+    renameLimit = 8264
 [difftool]
     prompt = false
 [difftool "meld"]

@@ -10,5 +10,6 @@ export CHEAT_USE_FZF=true
 # nnn plugins
 export NNN_PLUG='f:finder;o:fzopen;p:mocq;d:diffs;t:nmount;v:imgview'
 export HISTORY_IGNORE="(ls|cd|pwd|exit|fg|bg|gf|gs|z|make|open|ll|clion|...|..|tree|ez|tmp|open|echo|code|clion|studio|idea|goldendict|tmux)"
+export FZF_DEFAULT_COMMAND='rg --files --hidden -g "!.git" '
 HISTSIZE=999999999
 SAVEHIST=$HISTSIZE

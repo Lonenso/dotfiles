@@ -2,7 +2,6 @@
 meta.cpp
 patch.txt
 .DS_STORE
-.idea/
 *.udb
 compile_commands.json
 g.csv

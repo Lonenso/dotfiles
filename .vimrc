@@ -95,6 +95,8 @@ call plug#begin()
     Plug 'kopischke/vim-fetch'
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-speeddating'
+    Plug 'justinmk/vim-sneak'
+    Plug 'mhinz/vim-startify'
 call plug#end()
 "ale setting 
 "let g:ale_completion_enabled = 1
