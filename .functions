@@ -6,7 +6,7 @@ NC='\033[0m'
 function tmp() {
     f=$(mktemp)
     vim "$f"
-    echo "$f" | pbcopy
+    echo -n "$f" | pbcopy
 }
 
 function swap() {

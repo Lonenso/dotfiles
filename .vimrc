@@ -97,6 +97,7 @@ call plug#begin()
     Plug 'tpope/vim-speeddating'
     Plug 'justinmk/vim-sneak'
     Plug 'mhinz/vim-startify'
+    Plug 'darfink/vim-plist'
 call plug#end()
 "ale setting 
 "let g:ale_completion_enabled = 1
@@ -228,6 +229,17 @@ cnoremap <C-N> <Down>
 " nmap <c-a> :NERDTreeFind<CR>
 " ycm 
 nnoremap <leader>gd       :YcmCompleter GoToDeclaration<CR>
+" :nnoremap - Non-recursive map
+" <silent> - Do not echo anything when the mapping is pressed
+" J - Key to map
+" :let p=getpos('.') - Store cursor position
+" <bar> - Command separator (| for maps, see :help map_bar)
+" join - The ex command for normal's J
+" <bar> - ...
+" call setpos('.', p) - Restore cursor position
+" <cr> - Run the commands
+:nnoremap <silent> J :let p=getpos('.')<bar>join<bar>call setpos('.', p)<cr>
+
 " Command
 command -nargs=1 Count :%s/<args>//gn
 
@@ -268,3 +280,6 @@ set diffopt+=vertical
 if filereadable($HOME . "/.vimrc.local")
   source ~/.vimrc.local
 endif
+
+" filetype
+au BufRead,BufNewFile DEPS,.gclient set filetype=python

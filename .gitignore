@@ -1,4 +1,5 @@
 .extra
+.tool-versions
 meta.cpp
 patch.txt
 .DS_STORE
@@ -9,6 +10,7 @@ uml_in_node.wsd
 uml_out_node.wsd
 dep.csv
 options.txt
+.idea/
 xcuserdata/
 #############################
 # C++
