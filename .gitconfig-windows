@@ -1,2 +1,45 @@
 [core]
     autocrlf = true
+    excludesfile = ~/.gitignore
+    longpaths = true
+    pager = more
+    quotepath = false
+    fsmonitor = true
+    untrackedcache = true
+[alias]
+    co = checkout
+    cm = commit --message
+    ca = commit --amend
+    sw = switch
+    s = status -sb
+    # ss = "!sh -c 'basename $(git rev-parse --show-toplevel); git status -sb'"
+    br = branch
+    lo = log --pretty=format:"%C(yellow)%h%x09%C(blue)%>(12)%an%x09%C(red)%ad%x09%Creset%s" --date=relative
+    lof = log --pretty=format:"%C(yellow)%h%x09%C(blue)%>(12)%an%x09%C(red)%ad%x09%Creset%s" --date=rfc
+    f=fetch
+    swf = !git brv | fzf | cut -d ' ' -f 2 | xargs git sw
+    ; swf = !git for-each-ref --format='%(refname:short)' refs/heads | fzf | xargs git sw
+    su= submodule update --init --recursive
+    sr= submodule foreach --recursive
+    dft=difftool --dir-diff
+    conflicts = diff --name-only --diff-filter=U
+    root=rev-parse --show-toplevel
+    # worktree alias 
+    wl = worktree list
+    db = delete-branch
+[color]
+    ui = auto
+[fetch]
+    prune = true
+    parallel = 0
+[push]
+    autoSetupRemote = true
+[submodule]
+    recurse = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	email = Lonenso

@@ -21,6 +21,6 @@
 # $GitPromptSettings.BeforeStatus.ForegroundColor = [ConsoleColor]::Blue
 # $GitPromptSettings.BranchColor.ForegroundColor = [ConsoleColor]::Blue
 # $GitPromptSettings.AfterStatus.ForegroundColor = [ConsoleColor]::Blue
-Push-Location (Split-Path -parent $profile)
+Push-Location $PSHOME
 "env","functions","aliases","exports","extra" | Where-Object {Test-Path "$_.ps1"} | ForEach-Object -process {Invoke-Expression ". .\$_.ps1"}
 Pop-Location

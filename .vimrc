@@ -98,6 +98,7 @@ call plug#begin()
     Plug 'justinmk/vim-sneak'
     Plug 'mhinz/vim-startify'
     Plug 'darfink/vim-plist'
+    Plug 'vhda/verilog_systemverilog.vim'
 call plug#end()
 "ale setting 
 "let g:ale_completion_enabled = 1
