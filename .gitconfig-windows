@@ -42,4 +42,4 @@
 	process = git-lfs filter-process
 	required = true
 [user]
-	email = Lonenso
+	email = isxie.yixin@gmail.com

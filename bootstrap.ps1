@@ -2,7 +2,7 @@ Write-Output "sync dotfiles..."
 $ErrorActionPreference = "Stop"
 git pull origin main
 function doIt {
-    foreach ( $file in ".ideavimrc", ".git-commit-template.txt", ".gitignore", ".gitconfig-windows") {
+    foreach ( $file in ".git-commit-template.txt", ".gitignore", ".gitconfig-windows") {
         New-Item -ItemType SymbolicLink -Path (Join-Path $home $file) -Target (Resolve-Path $file) -Force
     }
     New-Item -ItemType SymbolicLink -Path (Join-Path $home .gitconfig) -Target (Resolve-Path .gitconfig-windows) -Force

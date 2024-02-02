@@ -1,5 +1,5 @@
 [core]
-    excludesfile = /Users/peter.xie/.gitignore
+    excludesfile = ~/.gitignore
     longpaths = true
     pager = less -FXi
     autocrlf = input
