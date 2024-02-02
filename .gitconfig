@@ -56,8 +56,6 @@
 [user]
     name = Lonenso
     email = isxie.yixin@gmail.com
-[includeIf "gitdir:~/work/"]
-    path = ~/work/.gitconfig
 # change autocrlf to true on windows 
 [includeIf "gitdir/i:C:/Users"]
     path = ~/.gitconfig-windows
@@ -76,8 +74,6 @@
 [http]
     postBuffer = 524288000
 	proxy = http://127.0.0.1:7890
-[bulkworkspaces]
-    rc = /Users/peter.xie/work/
 [submodule]
     recurse = true
 [https]
