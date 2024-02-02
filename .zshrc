@@ -4,19 +4,14 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-CASE_SENSITIVE="true"
-### brew
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
 
-[ -f "$(brew --prefix antigen)/share/antigen/antigen.zsh" ] && source "$(brew --prefix antigen)/share/antigen/antigen.zsh"
+CASE_SENSITIVE="true"
+
 # don't add quotation mark around tilde(~)
+[ -f ~/antigen.zsh ] && source ~/antigen.zsh
 [ -f ~/.antigenrc ] && antigen init ~/.antigenrc
 # Load the shell dotfiles, and then some:
-# * ~/.path can be used to extend `$PATH`.
-# * ~/.extra can be used for other settings you don’t want to commit.
-for file in ~/.{exports,aliases,functions,env,extra}; do
+for file in ~/.{exports,aliases,functions,extra}; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;

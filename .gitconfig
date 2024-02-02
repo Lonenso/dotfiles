@@ -75,7 +75,10 @@
     cmd = vimdiff \"$LOCAL\" \"$MERGED\" \"$REMOTE\" ; 3-way
 [http]
     postBuffer = 524288000
+	proxy = http://127.0.0.1:7890
 [bulkworkspaces]
     rc = /Users/peter.xie/work/
 [submodule]
     recurse = true
+[https]
+	proxy = http://127.0.0.1:7890

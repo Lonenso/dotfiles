@@ -1,18 +1,12 @@
 #!/usr/bin/env bash
 
-alias ls="exa"
 alias g="git"
 alias gs="g s"
 alias gf="git fetch"
 alias ez="exec -l zsh"
-alias vz="vim ~/.zshrc"
-alias sti="defaults write com.apple.dt.Xcode IDEIndexDisable 0"
-alias soi="defaults write com.apple.dt.Xcode IDEIndexDisable 1"
 alias zl="z -l"
 alias zc="z -c"
-alias path='echo -e ${PATH//:/\\n}'
 alias gr="cd \$(git root)"
 alias gcss="git conflicts | xargs git status -s"
 alias gcp="git cherry-pick"
 alias pip="python -m pip"
-alias bu4="brew update && brew upgrade && brew cleanup -s && brew autoremove"
