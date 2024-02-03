@@ -350,8 +350,9 @@ function! CenterComment(...)
     let right = width - left
     put=printf(&cms, repeat(' ', padding) . repeat(fill, left) . repeat(' ', padding) . text . repeat(' ', padding) . repeat(fill, right) . repeat(' ', padding))
 endfunction
-" }}}
 autocmd FileType c,cpp,java setlocal commentstring=//\ %s
+" }}}
+
 " PLUGIN {{{
 runtime! macros/matchit.vim
 " }}}
