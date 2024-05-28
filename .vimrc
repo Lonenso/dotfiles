@@ -87,6 +87,20 @@ Plug 'liuchengxu/vista.vim'
     let g:vista_close_on_fzf_select = 1
 " colors
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'itchyny/lightline.vim'
+let g:lightline = {
+      \ 'colorscheme': 'dracula',
+      \ 'active': {
+      \     'left': [ ['mode', 'paste'],
+      \               ['fug', 'readonly', 'filename', 'modified']],
+      \     'right': [ ['lineinfo'],['percent'],['fileformat','fileencoding','filetype'],['ctags', 'ale']]
+      \ },
+      \ 'component_function': {
+      \     'fug': 'fugitive#statusline',
+      \     'ale': 'LinterStatus',
+      \     'ctags': 'gutentags#statusline'
+      \ },
+      \ }
 " git
 Plug 'tpope/vim-fugitive'
 Plug 'mhinz/vim-signify'
@@ -178,7 +192,7 @@ function! s:statusline_expr()
 
   return '[%n] %F %<'.mod.ro.ft.fug.sep.ale.ctags.ff.enc.pos.'%*'.pct
 endfunction
-let &statusline = s:statusline_expr()
+" let &statusline = s:statusline_expr()
 
 set modelines=2
 set synmaxcol=1000
@@ -313,12 +327,14 @@ let g:ycm_semantic_triggers =  {
 			\ }
 let g:ycm_python_interpreter_path = ''
 let g:ycm_python_sys_path = []
+let g:ycm_auto_hover = ''
 " }}}
 
 " ALE {{{
 let g:ale_linters_explicit = 1
 let g:ale_echo_delay = 20
 let g:ale_lint_delay = 500
+let g:ale_linters = {'cpp':['cc', 'cppcheck']}
 let g:ale_echo_msg_format = '[%linter%] %code: %%s'
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
